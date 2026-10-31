@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Network Scanner</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Network Scanner</h1>
+
+    <p>
+        Authorized Target Network:
+        <strong>{{ network }}</strong>
+    </p>
+
+    {% if error %}
+        <p style="color: red;">
+            {{ error }}
+        </p>
+    {% endif %}
+
+    <hr>
+
+    <p>
+        The network has been verified for scanning.
+    </p>
+
+    <p>
+        Click the button below to start network discovery.
+    </p>
+
+    <form action="/scan" method="POST">
+
+        <button type="submit">
+            🔍 Start Network Scan
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/dashboard">
+        View Dashboard
+    </a>
+
+    <br><br>
+
+    <a href="/logout">
+        Logout
+    </a>
+
+</div>
+
+</body>
+
+</html>

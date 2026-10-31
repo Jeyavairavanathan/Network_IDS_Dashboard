@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Network Authorization</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Network Scan Authorization</h1>
+
+    <p>
+        Enter the private network that you want to monitor.
+    </p>
+
+    {% if error %}
+        <p style="color: red;">
+            {{ error }}
+        </p>
+    {% endif %}
+
+    <form method="POST">
+
+        <label>
+            Target Private Network
+        </label>
+
+        <br>
+
+        <input
+            type="text"
+            name="network"
+            placeholder="Example: 192.168.1.0/24"
+            required
+        >
+
+        <br><br>
+
+        <label>
+            Purpose of Scan
+        </label>
+
+        <br>
+
+        <input
+            type="text"
+            name="purpose"
+            placeholder="Network security monitoring"
+            required
+        >
+
+        <br><br>
+
+        <label>
+            <input
+                type="checkbox"
+                name="authorized"
+                value="yes"
+            >
+
+            I confirm that I have permission from
+            the network administrator to scan this network.
+        </label>
+
+        <br><br>
+
+        <button type="submit">
+            Verify & Continue
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/logout">
+        Logout
+    </a>
+
+</div>
+
+</body>
+</html>
